@@ -1,0 +1,38 @@
+[
+  {
+    "uniqueIdentifier": "f2531a40-1c56-4790-a6a2-9712cadaf4c7",
+    "payload": {
+      "name": "EventStream",
+      "metadata": {
+        "eventstreamArtifactId": "14a2604a-ece6-4c27-819a-8372d04a6090"
+      }
+    },
+    "type": "eventstreamSource-v1"
+  },
+  {
+    "uniqueIdentifier": "954964d4-cf15-4be5-a087-cf92d72204e6",
+    "payload": {
+      "name": "tag-governance-stream-stream",
+      "definition": {
+        "type": "Event",
+        "instance": "{\"templateId\":\"SourceEvent\",\"templateVersion\":\"1.1\",\"steps\":[{\"name\":\"SourceEventStep\",\"id\":\"2ae6d537-2981-45b9-a6b4-16bab008d5c6\",\"rows\":[{\"name\":\"SourceSelector\",\"kind\":\"SourceReference\",\"arguments\":[{\"name\":\"entityId\",\"type\":\"string\",\"value\":\"f2531a40-1c56-4790-a6a2-9712cadaf4c7\"}]}]}]}"
+      }
+    },
+    "type": "timeSeriesView-v1"
+  },
+  {
+    "uniqueIdentifier": "8868932f-55a5-4352-99dd-ef7c49acfe3c",
+    "payload": {
+      "name": "tag-governance-stream-stream alert",
+      "definition": {
+        "type": "Rule",
+        "instance": "{\"steps\":[{\"id\":\"1fbf95f9-9c6f-424b-aaab-4f89ce560909\",\"name\":\"FieldsDefaultsStep\",\"rows\":[{\"arguments\":[{\"arguments\":[{\"name\":\"entityId\",\"type\":\"string\",\"value\":\"954964d4-cf15-4be5-a087-cf92d72204e6\"}],\"kind\":\"EventReference\",\"name\":\"event\",\"type\":\"complex\"}],\"kind\":\"Event\",\"name\":\"EventSelector\"}]},{\"id\":\"5cae5714-81b2-422a-8da9-fc1cc4e43c9c\",\"name\":\"EventDetectStep\",\"rows\":[{\"arguments\":[],\"kind\":\"OnEveryValue\",\"name\":\"OnEveryValue\"}]},{\"id\":\"d0f51b8b-60f9-4ea0-9d72-d24b64991f69\",\"name\":\"ActStep\",\"rows\":[{\"arguments\":[{\"name\":\"messageLocale\",\"type\":\"string\",\"value\":\"en-us\"},{\"name\":\"sentTo\",\"type\":\"array\",\"values\":[{\"arguments\":[{\"name\":\"fieldName\",\"type\":\"string\",\"value\":\"owner_email\"}],\"kind\":\"EventFieldReference\",\"type\":\"complex\"}]},{\"name\":\"copyTo\",\"type\":\"array\",\"values\":[]},{\"name\":\"bCCTo\",\"type\":\"array\",\"values\":[]},{\"name\":\"subject\",\"type\":\"array\",\"values\":[{\"type\":\"string\",\"value\":\"Activator alert tag-governance-stream-stream alert\"}]},{\"name\":\"headline\",\"type\":\"array\",\"values\":[{\"type\":\"string\",\"value\":\"The condition for 'tag-governance-stream-stream alert' has been met\"}]},{\"name\":\"optionalMessage\",\"type\":\"array\",\"values\":[{\"name\":\"string\",\"type\":\"string\",\"value\":\"test message\"}]},{\"name\":\"additionalInformation\",\"type\":\"array\",\"values\":[]}],\"kind\":\"EmailMessage\",\"name\":\"EmailBinding\"}]}],\"templateId\":\"EventTrigger\",\"templateVersion\":\"1.3.0\"}",
+        "settings": {
+          "shouldRun": true,
+          "shouldApplyRuleOnUpdate": true
+        }
+      }
+    },
+    "type": "timeSeriesView-v1"
+  }
+]

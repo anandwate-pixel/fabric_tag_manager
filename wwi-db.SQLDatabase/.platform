@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SQLDatabase",
+    "displayName": "wwi-db"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "f4dbfb6b-ebe1-92fa-41d8-64dc98e496d4"
+  }
+}

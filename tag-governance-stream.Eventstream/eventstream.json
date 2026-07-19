@@ -1,0 +1,75 @@
+{
+  "sources": [
+    {
+      "id": "bb12f825-a6d5-4b10-85c2-ef6ad398289f",
+      "name": "test",
+      "type": "CustomEndpoint",
+      "properties": {}
+    }
+  ],
+  "destinations": [
+    {
+      "id": "55f7d912-115a-4f0b-9bc0-b87a3145e4fa",
+      "name": "BcDu1m71rAKb8R9rZwh-nm-e6cd05f1-5093-431d-b022-262130b92a17",
+      "type": "Activator",
+      "properties": {
+        "workspaceId": "00000000-0000-0000-0000-000000000000",
+        "itemId": "30b92a17-2621-b022-431d-5093e6cd05f1",
+        "inputSerialization": {
+          "type": "Json",
+          "properties": {
+            "encoding": "UTF8"
+          }
+        }
+      },
+      "inputNodes": [
+        {
+          "name": "tag-governance-stream-stream"
+        }
+      ]
+    },
+    {
+      "id": "f2531a40-1c56-4790-a6a2-9712cadaf4c7",
+      "name": "Activator",
+      "type": "Activator",
+      "properties": {
+        "workspaceId": "00000000-0000-0000-0000-000000000000",
+        "itemId": "30b92a17-2621-b022-431d-5093e6cd05f1",
+        "inputSerialization": {
+          "type": "Json",
+          "properties": {
+            "encoding": "UTF8"
+          }
+        }
+      },
+      "inputNodes": [
+        {
+          "name": "tag-governance-stream-stream"
+        }
+      ],
+      "inputSchemas": [
+        {
+          "name": "tag-governance-stream-stream",
+          "schema": {
+            "columns": []
+          }
+        }
+      ]
+    }
+  ],
+  "streams": [
+    {
+      "id": "de1304c8-8c27-4296-b3af-2779da738e86",
+      "name": "tag-governance-stream-stream",
+      "type": "DefaultStream",
+      "properties": {},
+      "inputNodes": [
+        {
+          "name": "test"
+        }
+      ]
+    }
+  ],
+  "operators": [],
+  "compatibilityLevel": "1.1"
+}

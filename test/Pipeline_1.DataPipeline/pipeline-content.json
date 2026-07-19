@@ -1,0 +1,30 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "name": "Office365Email1",
+        "type": "Office365Email",
+        "state": "Inactive",
+        "onInactiveMarkAs": "Succeeded",
+        "dependsOn": [],
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureOutput": false,
+          "secureInput": false
+        },
+        "typeProperties": {
+          "to": "johnd@contoso.com",
+          "subject": "hello",
+          "body": "<p>@{pipeline().Pipeline} exectuted.</p>",
+          "from": "johnd@contoso.com",
+          "cc": "johnd@contoso.com",
+          "bcc": "johnd@contoso.com",
+          "replyTo": "johnd@contoso.com",
+          "importance": "Low"
+        }
+      }
+    ]
+  }
+}

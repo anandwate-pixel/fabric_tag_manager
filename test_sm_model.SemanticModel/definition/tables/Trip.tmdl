@@ -1,0 +1,243 @@
+table Trip
+	lineageTag: 84df9999-bd54-4ca4-8236-5a96c8e19d61
+	sourceLineageTag: [dbo].[Trip]
+
+	column DateID
+		dataType: int64
+		formatString: 0
+		lineageTag: 67e4ed08-6141-4dbb-a80d-2ab9dd3209f9
+		sourceLineageTag: DateID
+		summarizeBy: count
+		sourceColumn: DateID
+
+		annotation SummarizationSetBy = Automatic
+
+	column MedallionID
+		dataType: int64
+		formatString: 0
+		lineageTag: 25703587-7442-484f-8aa5-e2a5ec89e4a9
+		sourceLineageTag: MedallionID
+		summarizeBy: count
+		sourceColumn: MedallionID
+
+		annotation SummarizationSetBy = Automatic
+
+	column HackneyLicenseID
+		dataType: int64
+		formatString: 0
+		lineageTag: 048ca37d-10b4-4dc5-9062-30b8f2b560bd
+		sourceLineageTag: HackneyLicenseID
+		summarizeBy: count
+		sourceColumn: HackneyLicenseID
+
+		annotation SummarizationSetBy = Automatic
+
+	column PickupTimeID
+		dataType: int64
+		formatString: 0
+		lineageTag: 90f41e31-2d01-41ad-8115-9d74e484883e
+		sourceLineageTag: PickupTimeID
+		summarizeBy: count
+		sourceColumn: PickupTimeID
+
+		annotation SummarizationSetBy = Automatic
+
+	column DropoffTimeID
+		dataType: int64
+		formatString: 0
+		lineageTag: a5442bfb-9bce-40e6-b55b-00fa1cbd6afd
+		sourceLineageTag: DropoffTimeID
+		summarizeBy: count
+		sourceColumn: DropoffTimeID
+
+		annotation SummarizationSetBy = Automatic
+
+	column PickupGeographyID
+		dataType: int64
+		formatString: 0
+		lineageTag: 67f94788-3199-4b30-b2e6-2d47b54c5edf
+		sourceLineageTag: PickupGeographyID
+		summarizeBy: count
+		sourceColumn: PickupGeographyID
+
+		annotation SummarizationSetBy = Automatic
+
+	column DropoffGeographyID
+		dataType: int64
+		formatString: 0
+		lineageTag: ebe70cfc-4cbe-4312-8290-1c6323e9f3a4
+		sourceLineageTag: DropoffGeographyID
+		summarizeBy: count
+		sourceColumn: DropoffGeographyID
+
+		annotation SummarizationSetBy = Automatic
+
+	column PickupLatitude
+		dataType: double
+		lineageTag: 5836d519-9570-4900-b308-f016ab073297
+		sourceLineageTag: PickupLatitude
+		summarizeBy: sum
+		sourceColumn: PickupLatitude
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PickupLongitude
+		dataType: double
+		lineageTag: 4e7da55a-bece-4ca5-9d44-0488ffe4a4ef
+		sourceLineageTag: PickupLongitude
+		summarizeBy: sum
+		sourceColumn: PickupLongitude
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PickupLatLong
+		dataType: string
+		lineageTag: bd139741-5637-41a8-9a69-b5f61e162000
+		sourceLineageTag: PickupLatLong
+		summarizeBy: none
+		sourceColumn: PickupLatLong
+
+		annotation SummarizationSetBy = Automatic
+
+	column DropoffLatitude
+		dataType: double
+		lineageTag: ab426836-fa99-4c61-8645-f33c43b782b2
+		sourceLineageTag: DropoffLatitude
+		summarizeBy: sum
+		sourceColumn: DropoffLatitude
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column DropoffLongitude
+		dataType: double
+		lineageTag: 5b6dfde4-16de-4ac6-b73e-9b465fe3e86c
+		sourceLineageTag: DropoffLongitude
+		summarizeBy: sum
+		sourceColumn: DropoffLongitude
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column DropoffLatLong
+		dataType: string
+		lineageTag: 9eb13caa-0efb-4171-aee8-9e34262b9357
+		sourceLineageTag: DropoffLatLong
+		summarizeBy: none
+		sourceColumn: DropoffLatLong
+
+		annotation SummarizationSetBy = Automatic
+
+	column PassengerCount
+		dataType: int64
+		formatString: 0
+		lineageTag: b71f8fb9-415f-474d-96db-8c91c1c0f1d3
+		sourceLineageTag: PassengerCount
+		summarizeBy: sum
+		sourceColumn: PassengerCount
+
+		annotation SummarizationSetBy = Automatic
+
+	column TripDurationSeconds
+		dataType: int64
+		formatString: 0
+		lineageTag: 85607ac7-f87e-4b27-be41-f219ce51d7fe
+		sourceLineageTag: TripDurationSeconds
+		summarizeBy: sum
+		sourceColumn: TripDurationSeconds
+
+		annotation SummarizationSetBy = Automatic
+
+	column TripDistanceMiles
+		dataType: double
+		lineageTag: eae25ea1-8566-49bc-afce-4bb07be83539
+		sourceLineageTag: TripDistanceMiles
+		summarizeBy: sum
+		sourceColumn: TripDistanceMiles
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PaymentType
+		dataType: string
+		lineageTag: 137e20da-8fc6-4d7d-b663-da379f17a185
+		sourceLineageTag: PaymentType
+		summarizeBy: none
+		sourceColumn: PaymentType
+
+		annotation SummarizationSetBy = Automatic
+
+	column FareAmount
+		dataType: int64
+		formatString: 0
+		lineageTag: 0de018b4-f22f-4336-9a12-19cfc1f6fe46
+		sourceLineageTag: FareAmount
+		summarizeBy: sum
+		sourceColumn: FareAmount
+
+		annotation SummarizationSetBy = Automatic
+
+	column SurchargeAmount
+		dataType: int64
+		formatString: 0
+		lineageTag: d9917b2b-aa88-4bf1-aaf1-05d4bd6c958e
+		sourceLineageTag: SurchargeAmount
+		summarizeBy: sum
+		sourceColumn: SurchargeAmount
+
+		annotation SummarizationSetBy = Automatic
+
+	column TaxAmount
+		dataType: int64
+		formatString: 0
+		lineageTag: d8600f6b-3c9f-4fd2-8683-2268723449f4
+		sourceLineageTag: TaxAmount
+		summarizeBy: sum
+		sourceColumn: TaxAmount
+
+		annotation SummarizationSetBy = Automatic
+
+	column TipAmount
+		dataType: int64
+		formatString: 0
+		lineageTag: 0012dee5-a902-4417-82ef-2d29a35d1a13
+		sourceLineageTag: TipAmount
+		summarizeBy: sum
+		sourceColumn: TipAmount
+
+		annotation SummarizationSetBy = Automatic
+
+	column TollsAmount
+		dataType: int64
+		formatString: 0
+		lineageTag: 8ea4bb96-652a-416d-a30d-f0985c38b877
+		sourceLineageTag: TollsAmount
+		summarizeBy: sum
+		sourceColumn: TollsAmount
+
+		annotation SummarizationSetBy = Automatic
+
+	column TotalAmount
+		dataType: int64
+		formatString: 0
+		lineageTag: 5b808dde-fad8-45d3-9b19-3eb28af5cf5c
+		sourceLineageTag: TotalAmount
+		summarizeBy: sum
+		sourceColumn: TotalAmount
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Trip = entity
+		mode: directLake
+		source
+			entityName: Trip
+			schemaName: dbo
+			expressionSource: 'DirectLake - test_wh'
+
