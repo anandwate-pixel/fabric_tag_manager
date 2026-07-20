@@ -4,7 +4,7 @@
     "payload": {
       "name": "EventStream",
       "metadata": {
-        "eventstreamArtifactId": "14a2604a-ece6-4c27-819a-8372d04a6090"
+        "eventstreamArtifactId": "b0cf5a7c-2e69-4739-8a9e-aea7d20af7e0"
       }
     },
     "type": "eventstreamSource-v1"
@@ -31,6 +31,27 @@
           "shouldRun": true,
           "shouldApplyRuleOnUpdate": true
         }
+      }
+    },
+    "type": "timeSeriesView-v1"
+  },
+  {
+    "uniqueIdentifier": "55f7d912-115a-4f0b-9bc0-b87a3145e4fa",
+    "payload": {
+      "name": "EventStream",
+      "metadata": {
+        "eventstreamArtifactId": "b0cf5a7c-2e69-4739-8a9e-aea7d20af7e0"
+      }
+    },
+    "type": "eventstreamSource-v1"
+  },
+  {
+    "uniqueIdentifier": "c112114e-6185-43fd-9e38-420ffb72d18f",
+    "payload": {
+      "name": "tag-governance-stream-stream",
+      "definition": {
+        "type": "Event",
+        "instance": "{\"templateId\":\"SourceEvent\",\"templateVersion\":\"1.1\",\"steps\":[{\"name\":\"SourceEventStep\",\"id\":\"c92df524-1a82-46c9-aa05-68e1897e95f0\",\"rows\":[{\"name\":\"SourceSelector\",\"kind\":\"SourceReference\",\"arguments\":[{\"name\":\"entityId\",\"type\":\"string\",\"value\":\"55f7d912-115a-4f0b-9bc0-b87a3145e4fa\"}]}]}]}"
       }
     },
     "type": "timeSeriesView-v1"
