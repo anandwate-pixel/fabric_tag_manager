@@ -1,0 +1,113 @@
+table tag_notifications
+	lineageTag: 19612454-6d7b-4318-a53c-ab78eda1cf74
+	sourceLineageTag: [dbo].[tag_notifications]
+
+	column key
+		dataType: string
+		lineageTag: 0965549b-7b33-4f7c-999f-f84d5bcf7563
+		sourceLineageTag: key
+		summarizeBy: none
+		sourceColumn: key
+
+		annotation SummarizationSetBy = Automatic
+
+	column workspace_id
+		dataType: string
+		lineageTag: f4378d50-4b25-458b-a03c-de4134060b29
+		sourceLineageTag: workspace_id
+		summarizeBy: none
+		sourceColumn: workspace_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column workspace_name
+		dataType: string
+		lineageTag: 4f9f7db9-0137-4bdc-afd8-4da0b4a20f2b
+		sourceLineageTag: workspace_name
+		summarizeBy: none
+		sourceColumn: workspace_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column compliant
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: f49c7251-6f5c-4d9a-9f88-355b84e568aa
+		sourceLineageTag: compliant
+		summarizeBy: none
+		sourceColumn: compliant
+
+		annotation SummarizationSetBy = Automatic
+
+	column notification_sent
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: beb9bede-5520-47bd-a190-f4dcff6a2e56
+		sourceLineageTag: notification_sent
+		summarizeBy: none
+		sourceColumn: notification_sent
+
+		annotation SummarizationSetBy = Automatic
+
+	column violation_count
+		dataType: int64
+		formatString: 0
+		lineageTag: abcb6495-c419-4363-9422-e15006dca962
+		sourceLineageTag: violation_count
+		summarizeBy: sum
+		sourceColumn: violation_count
+
+		annotation SummarizationSetBy = Automatic
+
+	column violation_signature
+		dataType: string
+		lineageTag: f4cc7d68-5939-4a0e-b3aa-f100c59e9c23
+		sourceLineageTag: violation_signature
+		summarizeBy: none
+		sourceColumn: violation_signature
+
+		annotation SummarizationSetBy = Automatic
+
+	column violations_json
+		dataType: string
+		lineageTag: 5f5f68f9-cdb4-45fd-9da0-6565c9b4f8ad
+		sourceLineageTag: violations_json
+		summarizeBy: none
+		sourceColumn: violations_json
+
+		annotation SummarizationSetBy = Automatic
+
+	column appid_value
+		dataType: string
+		lineageTag: 519e9455-4882-4e8c-8ce3-18cdb387f108
+		sourceLineageTag: appid_value
+		summarizeBy: none
+		sourceColumn: appid_value
+
+		annotation SummarizationSetBy = Automatic
+
+	column first_alert_utc
+		dataType: string
+		lineageTag: 6a7c7f68-c533-4b53-a140-fb6cfbef9d2b
+		sourceLineageTag: first_alert_utc
+		summarizeBy: none
+		sourceColumn: first_alert_utc
+
+		annotation SummarizationSetBy = Automatic
+
+	column last_alert_utc
+		dataType: string
+		lineageTag: a10639d3-3767-4003-aac8-b857e921dc1b
+		sourceLineageTag: last_alert_utc
+		summarizeBy: none
+		sourceColumn: last_alert_utc
+
+		annotation SummarizationSetBy = Automatic
+
+	partition tag_notifications = entity
+		mode: directLake
+		source
+			entityName: tag_notifications
+			schemaName: dbo
+			expressionSource: 'DirectLake - monitoring_lakehouse'
+

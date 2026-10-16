@@ -1,0 +1,9 @@
+expression 'DirectLake - monitoring_lakehouse' =
+		let
+		    Source = AzureStorage.DataLake("https://onelake.dfs.fabric.microsoft.com/f3c50251-d451-442f-8631-b12b6ad76de2/28db7020-c7df-4c7f-91a0-bad2f9997486", [HierarchicalNavigation=true])
+		in
+		    Source
+	lineageTag: c7c48559-4de3-4468-b7ee-6975663efa67
+
+	annotation PBI_IncludeFutureArtifacts = False
+

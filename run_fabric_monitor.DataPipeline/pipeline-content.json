@@ -1,0 +1,238 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "type": "TridentNotebook",
+        "typeProperties": {
+          "notebookId": "4aea7672-c2cf-b7fe-453d-eeb9ae513ea4",
+          "workspaceId": "00000000-0000-0000-0000-000000000000",
+          "parameters": {
+            "CONFIG_RELATIVE_PATH": {
+              "value": "config/config.json",
+              "type": "string"
+            },
+            "LAKEHOUSE_MOUNT": {
+              "value": "/lakehouse/default/Files",
+              "type": "string"
+            },
+            "ENV": {
+              "value": "ws",
+              "type": "string"
+            }
+          }
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "invoke tag monitor",
+        "dependsOn": []
+      },
+      {
+        "type": "TridentNotebook",
+        "typeProperties": {
+          "notebookId": "65875b73-ba59-9cb6-467f-00d3f4572dae",
+          "workspaceId": "00000000-0000-0000-0000-000000000000",
+          "parameters": {
+            "CONFIG_RELATIVE_PATH": {
+              "value": "config/config.json",
+              "type": "string"
+            },
+            "LAKEHOUSE_MOUNT": {
+              "value": "/lakehouse/default/Files",
+              "type": "string"
+            },
+            "ALERT_TYPE": {
+              "value": "tag_noncompliance",
+              "type": "string"
+            },
+            "PIPELINE_RUN_SUBJECT": {
+              "type": "string"
+            },
+            "ERROR_MSG": {
+              "type": "string"
+            }
+          }
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "invoke_send_alerts",
+        "dependsOn": [
+          {
+            "activity": "invoke tag monitor",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "TridentNotebook",
+        "typeProperties": {
+          "notebookId": "65875b73-ba59-9cb6-467f-00d3f4572dae",
+          "workspaceId": "00000000-0000-0000-0000-000000000000",
+          "parameters": {
+            "CONFIG_RELATIVE_PATH": {
+              "value": "config/config.json",
+              "type": "string"
+            },
+            "LAKEHOUSE_MOUNT": {
+              "value": "/lakehouse/default/Files",
+              "type": "string"
+            },
+            "ALERT_TYPE": {
+              "value": "tag_noncompliance",
+              "type": "string"
+            },
+            "PIPELINE_RUN_SUBJECT": {
+              "value": {
+                "value": "@concat('Pipeline ',pipeline().PipelineName, ' processing has completed successfully at ', pipeline().TriggerTime)",
+                "type": "Expression"
+              },
+              "type": "string"
+            },
+            "ERROR_MSG": {
+              "value": {
+                "value": "@concat('Pipeline ',pipeline().PipelineName, ' processing has completed successfully.')",
+                "type": "Expression"
+              },
+              "type": "string"
+            }
+          }
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "success",
+        "dependsOn": [
+          {
+            "activity": "invoke_send_alerts",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "TridentNotebook",
+        "typeProperties": {
+          "notebookId": "65875b73-ba59-9cb6-467f-00d3f4572dae",
+          "workspaceId": "00000000-0000-0000-0000-000000000000",
+          "parameters": {
+            "CONFIG_RELATIVE_PATH": {
+              "value": "config/config.json",
+              "type": "string"
+            },
+            "LAKEHOUSE_MOUNT": {
+              "value": "/lakehouse/default/Files",
+              "type": "string"
+            },
+            "ALERT_TYPE": {
+              "value": "tag_noncompliance",
+              "type": "string"
+            },
+            "PIPELINE_RUN_SUBJECT": {
+              "value": {
+                "value": "@concat('Pipeline ',pipeline().PipelineName, ' processing has failed at ', pipeline().TriggerTime)",
+                "type": "Expression"
+              },
+              "type": "string"
+            },
+            "ERROR_MSG": {
+              "value": {
+                "value": "@concat('Pipeline ',pipeline().PipelineName, ' ',activity('invoke tag monitor').output.result.error.evalue)",
+                "type": "Expression"
+              },
+              "type": "string"
+            }
+          }
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "failed tag monitor",
+        "dependsOn": [
+          {
+            "activity": "invoke tag monitor",
+            "dependencyConditions": [
+              "Failed"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "TridentNotebook",
+        "typeProperties": {
+          "notebookId": "65875b73-ba59-9cb6-467f-00d3f4572dae",
+          "workspaceId": "00000000-0000-0000-0000-000000000000",
+          "parameters": {
+            "CONFIG_RELATIVE_PATH": {
+              "value": "config/config.json",
+              "type": "string"
+            },
+            "LAKEHOUSE_MOUNT": {
+              "value": "/lakehouse/default/Files",
+              "type": "string"
+            },
+            "ALERT_TYPE": {
+              "value": "tag_noncompliance",
+              "type": "string"
+            },
+            "PIPELINE_RUN_SUBJECT": {
+              "value": {
+                "value": "@concat('Pipeline ',pipeline().PipelineName, 'processing has failed at ', pipeline().TriggerTime)",
+                "type": "Expression"
+              },
+              "type": "string"
+            },
+            "ERROR_MSG": {
+              "value": {
+                "value": "@concat('Pipeline ',pipeline().PipelineName, ' ',activity('invoke_send_alerts').output.result.error.evalue)",
+                "type": "Expression"
+              },
+              "type": "string"
+            }
+          }
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "failed_send alerts",
+        "dependsOn": [
+          {
+            "activity": "invoke_send_alerts",
+            "dependencyConditions": [
+              "Failed"
+            ]
+          }
+        ]
+      }
+    ],
+    "variables": {
+      "ENV": {
+        "type": "String",
+        "defaultValue": "TST"
+      }
+    }
+  }
+}

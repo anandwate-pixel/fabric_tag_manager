@@ -1,0 +1,12 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "KQLDatabase",
+    "displayName": "sfdsff",
+    "description": "sfdsff"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "4f994b70-3e21-9704-488e-a23f238996aa"
+  }
+}
